@@ -1,0 +1,182 @@
+
+<core:IndoorFeatures xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:core="http://www.opengis.net/indoorgml/1.0/core" xmlns:imdf="https://0vollov0.github.io/imdfToIndoorGML_XSD" xmlns:navi="http://www.opengis.net/indoorgml/1.0/navigation" xmlns:ns6="http://indoorgml.net/repository/NonNaviSpace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="imdf:IndoorFeaturesForIMDFType" gml:id="If4imdf1" xsi:schemaLocation="http://www.opengis.net/indoorgml/1.0/core http://schemas.opengis.net/indoorgml/1.0/indoorgmlcore.xsd http://www.opengis.net/indoorgml/1.0/navigation http://schemas.opengis.net/indoorgml/1.0/indoorgmlnavi.xsdhttps://0vollov0.github.io/imdfToIndoorGML_XSD https://0vollov0.github.io/imdfToIndoorGML_XSD/indoorgmlimdf.xsd">
+    <gml:boundedBy xsi:nil="true"/>
+    <core:primalSpaceFeatures>
+        <core:PrimalSpaceFeatures gml:id="psf1">
+            <gml:boundedBy xsi:nil="true"/>
+            <core:cellSpaceMember>
+                <imdf:GeofenceSpace gml:id="C1">
+                    <gml:description>storey="F1":</gml:description>
+                    <gml:name>C1</gml:name>
+                    <gml:boundedBy xsi:nil="true"/>
+                    <core:cellSpaceGeometry>
+                        <core:Geometry2D>
+                            <gml:Polygon gml:id="CG-C1">
+<gml:exterior>
+    <gml:LinearRing>
+        <gml:pos srsDimension="3">10.0 0.0 0.0</gml:pos>
+        <gml:pos srsDimension="3">20.0 0.0 0.0</gml:pos>
+        <gml:pos srsDimension="3">20.0 10.0 0.0</gml:pos>
+        <gml:pos srsDimension="3">10.0 10.0 0.0</gml:pos>
+        <gml:pos srsDimension="3">10.0 0.0 0.0</gml:pos>
+    </gml:LinearRing>
+</gml:exterior>
+                            </gml:Polygon>
+                        </core:Geometry2D>
+                    </core:cellSpaceGeometry>
+                    <core:duality xlink:href="#S1"/>
+                    <core:partialboundedBy xlink:href="#B1-REVERSE"/>
+                    <imdf:featureInformation>
+                        <imdf:id>G1</imdf:id>
+                        <imdf:type>Feature</imdf:type>
+                        <imdf:feature_type>geofence</imdf:feature_type>
+                        <imdf:gml_geometry></imdf:gml_geometry>
+                    </imdf:featureInformation>
+                    <imdf:category>geofence</imdf:category>
+                    <imdf:restriction>employeesonly</imdf:restriction>
+                    <imdf:correlation_id>null</imdf:correlation_id>
+                    <imdf:building_ids>11111111</imdf:building_ids>
+                    <imdf:building_ids>22222222</imdf:building_ids>
+                    <imdf:level_ids>33333333</imdf:level_ids>
+                    <imdf:level_ids>44444444</imdf:level_ids>
+                    <imdf:feature_name>
+                        <imdf:language>ko-KR</imdf:language>
+                        <imdf:name>feature_name</imdf:name>
+                    </imdf:feature_name>
+                    <imdf:alt_name>
+                        <imdf:language>ko-KR</imdf:language>
+                        <imdf:name>alt_name</imdf:name>
+                    </imdf:alt_name>
+                </imdf:GeofenceSpace>
+            </core:cellSpaceMember>
+        </core:PrimalSpaceFeatures>
+    </core:primalSpaceFeatures>
+    <imdf:manifest>
+        <imdf:version>version</imdf:version>
+        <imdf:created>created</imdf:created>
+        <imdf:generated_by>generated_by</imdf:generated_by>
+        <imdf:language>KO_KR</imdf:language>
+        <imdf:extensions>extensions</imdf:extensions>
+    </imdf:manifest>
+    <imdf:address>
+        <imdf:featureInformation>
+            <imdf:id>G1</imdf:id>
+            <imdf:type>Feature</imdf:type>
+            <imdf:feature_type>geofence</imdf:feature_type>
+            <imdf:gml_geometry></imdf:gml_geometry>
+        </imdf:featureInformation>
+        <imdf:address>address</imdf:address>
+        <imdf:unit>unit</imdf:unit>
+        <imdf:locality>locality</imdf:locality>
+        <imdf:province>province</imdf:province>
+        <imdf:country>country</imdf:country>
+        <imdf:postal_code>postal_code</imdf:postal_code>
+        <imdf:postal_code_ext>postal_code_ext</imdf:postal_code_ext>
+        <imdf:postal_code_vanity>postal_code_vanity</imdf:postal_code_vanity>
+    </imdf:address>
+    <imdf:occupant>
+        <imdf:featureInformation>
+            <imdf:id>OF1</imdf:id>
+            <imdf:type>Feature</imdf:type>
+            <imdf:feature_type>geofence</imdf:feature_type>
+            <imdf:gml_geometry></imdf:gml_geometry>
+        </imdf:featureInformation>
+        <imdf:category>cosmetics</imdf:category>
+        <imdf:anchor_id>anchor_id</imdf:anchor_id>
+        <imdf:hours>hours</imdf:hours>
+        <imdf:ordinal>ordinal</imdf:ordinal>
+        <imdf:website>website</imdf:website>
+        <imdf:validity>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified</imdf:modified>
+        </imdf:validity>
+        <imdf:correlation_id>
+            <imdf:language>ko-KR</imdf:language>
+            <imdf:name>name</imdf:name>
+        </imdf:correlation_id>
+    </imdf:occupant>
+    <imdf:occupant>
+        <imdf:featureInformation>
+            <imdf:id>OF2</imdf:id>
+            <imdf:type>Feature</imdf:type>
+            <imdf:feature_type>geofence</imdf:feature_type>
+            <imdf:gml_geometry></imdf:gml_geometry>
+        </imdf:featureInformation>
+        <imdf:category>cosmetics</imdf:category>
+        <imdf:anchor_id>anchor_id</imdf:anchor_id>
+        <imdf:hours>hours</imdf:hours>
+        <imdf:ordinal>ordinal</imdf:ordinal>
+        <imdf:website>website</imdf:website>
+        <imdf:validity>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:validity>
+        <imdf:correlation_id>
+            <imdf:language>ko-KR</imdf:language>
+            <imdf:name>name</imdf:name>
+        </imdf:correlation_id>
+    </imdf:occupant>
+    <imdf:realationship>
+        <imdf:featureInformation>
+            <imdf:id>rf1</imdf:id>
+            <imdf:type>Feature</imdf:type>
+            <imdf:feature_type>geofence</imdf:feature_type>
+            <imdf:gml_geometry></imdf:gml_geometry>
+        </imdf:featureInformation>
+        <imdf:category>ramp</imdf:category>
+        <imdf:direction>undirected</imdf:direction>
+        <imdf:hours>hours</imdf:hours>
+        <imdf:destination>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:destination>
+        <imdf:origin>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:origin>
+        <imdf:intermediary>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:intermediary>
+        <imdf:intermediary>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:intermediary>
+    </imdf:realationship>
+    <imdf:realationship>
+        <imdf:featureInformation>
+            <imdf:id>rf2</imdf:id>
+            <imdf:type>Feature</imdf:type>
+            <imdf:feature_type>geofence</imdf:feature_type>
+            <imdf:gml_geometry></imdf:gml_geometry>
+        </imdf:featureInformation>
+        <imdf:direction>directed</imdf:direction>
+        <imdf:hours>hours</imdf:hours>
+        <imdf:destination>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:destination>
+        <imdf:origin>
+            <imdf:start>start1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:origin>
+        <imdf:intermediary>
+            <imdf:start>start intermediary1</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:intermediary>
+        <imdf:intermediary>
+            <imdf:start>start intermediary2</imdf:start>
+            <imdf:end>end1</imdf:end>
+            <imdf:modified>modified2</imdf:modified>
+        </imdf:intermediary>
+    </imdf:realationship>
+</core:IndoorFeatures>

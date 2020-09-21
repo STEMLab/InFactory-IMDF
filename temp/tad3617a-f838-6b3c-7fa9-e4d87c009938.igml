@@ -1,0 +1,4 @@
+
+<core:IndoorFeatures xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:core="http://www.opengis.net/indoorgml/1.0/core" xmlns:navi="http://www.opengis.net/indoorgml/1.0/navigation" xmlns:ns5="http://indoorgml.net/extensions/PSExt" xmlns:ns6="http://indoorgml.net/repository/NonNaviSpace" xmlns:ns7="http://indoorgml.net/extensions/textureext" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" gml:id="p5fb4c12-12b9-c2c8-19dd-7349df1814dc" xsi:schemaLocation="http://www.opengis.net/indoorgml/1.0/core http://schemas.opengis.net/indoorgml/1.0/indoorgmlcore.xsd http://www.opengis.net/indoorgml/1.0/navigation http://schemas.opengis.net/indoorgml/1.0/indoorgmlnavi.xsd">
+    <gml:boundedBy xsi:nil="true"/>
+</core:IndoorFeatures>
