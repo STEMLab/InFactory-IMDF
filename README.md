@@ -60,8 +60,7 @@ It is explained at the wiki.
 
 ## Authors
 
-* Hyemi Jeong - IndoorGML CRUD DAO developer stemlab@pnu.edu
-* Hyung-Gyu Ryoo - IndoorGML Restful API developer hgryoo@pnu.edu
+* Dohoon Kang dhkang@pusan.ac.kr
 
 ## Contributing
 
