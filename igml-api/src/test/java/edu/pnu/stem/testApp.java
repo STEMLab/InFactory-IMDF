@@ -16,7 +16,7 @@ public class testApp extends TestCase {
 		IndoorGMLMap map = Container.createDocument("test");
 		IndoorFeaturesType doc = Unmashaller.importIndoorGML("test","src/test/resources/FJK_1_0_3.gml");
 		IndoorFeatures savedDoc = edu.pnu.stem.binder.Convert2FeatureClass.change2FeatureClass(map,"test", doc);		
-		edu.pnu.stem.binder.Mashaller.marshalIndoorFeatures(null, Convert2JaxbClass.change2JaxbClass(map,savedDoc));
+//		edu.pnu.stem.binder.Mashaller.marshalIndoorFeaturesForIMDF(null, Convert2JaxbClass.change2JaxbClass(map,savedDoc));
 	} catch (JAXBException e) {
 		// TODO Auto-generated catch block
 		e.printStackTrace();
