@@ -28,9 +28,7 @@ import edu.pnu.stem.api.exception.DocumentNotFoundException;
 import edu.pnu.stem.api.exception.UndefinedDocumentException;
 import edu.pnu.stem.binder.IndoorGMLMap;
 import edu.pnu.stem.binder.Unmashaller;
-import edu.pnu.stem.feature.core.IndoorFeatures;
 import edu.pnu.stem.feature.imdf.IndoorFeaturesForIMDF;
-import net.opengis.indoorgml.core.v_1_0.IndoorFeaturesType;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.IndoorFeaturesForIMDFType;
 
 /**

@@ -10,7 +10,6 @@ import javax.xml.bind.JAXBIntrospector;
 import javax.xml.bind.Unmarshaller;
 import javax.xml.bind.helpers.DefaultValidationEventHandler;
 
-import edu.pnu.stem.feature.imdf.IndoorFeaturesForIMDF;
 import net.opengis.gml.v_3_2_1.AbstractGMLType;
 import net.opengis.indoorgml.core.v_1_0.IndoorFeaturesType;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.IndoorFeaturesForIMDFType;

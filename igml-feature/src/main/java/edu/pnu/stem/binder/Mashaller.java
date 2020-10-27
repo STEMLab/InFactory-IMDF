@@ -150,7 +150,10 @@ public class Mashaller {
 		}
 
 		ObjectFactory objectFactory = new ObjectFactory();
+		
+		
 		JAXBElement<IndoorFeaturesType> jIndoorFeatures = objectFactory.createIndoorFeatures(indoorFeaturesType);
+		
 
 		marshaller = context.createMarshaller();
 		marshaller.setProperty(Marshaller.JAXB_SCHEMA_LOCATION,

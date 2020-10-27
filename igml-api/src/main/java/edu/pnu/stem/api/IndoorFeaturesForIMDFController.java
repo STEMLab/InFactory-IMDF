@@ -6,7 +6,6 @@ package edu.pnu.stem.api;
 import java.io.IOException;
 import java.io.PrintWriter;
 import java.util.ArrayList;
-import java.util.List;
 import java.util.UUID;
 
 import javax.servlet.http.HttpServletRequest;
@@ -32,7 +31,6 @@ import edu.pnu.stem.binder.Convert2Json;
 import edu.pnu.stem.binder.IndoorGMLMap;
 import edu.pnu.stem.dao.IndoorFeaturesDAO;
 import edu.pnu.stem.dao.IndoorFeaturesForIMDFDAO;
-import edu.pnu.stem.feature.core.IndoorFeatures;
 import edu.pnu.stem.feature.imdf.Address;
 import edu.pnu.stem.feature.imdf.FeatureInformation;
 import edu.pnu.stem.feature.imdf.IndoorFeaturesForIMDF;
@@ -41,15 +39,12 @@ import edu.pnu.stem.feature.imdf.Manifest;
 import edu.pnu.stem.feature.imdf.Occupant;
 import edu.pnu.stem.feature.imdf.Relationship;
 import edu.pnu.stem.feature.imdf.Temporality;
-import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.AddressType;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.DIRECTION;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FEATURECATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FEATUREREFERENCE;
-import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FeatureInformationType;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.LANGUAGETAG;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.OCCUPANTCATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.RELATIONSHIPCATEGORY;
-import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.RESTRICTIONCATEGORY;
 
 @RestController
 @RequestMapping("/documents/{docId}/IndoorFeaturesForIMDF")
@@ -430,41 +425,33 @@ public class IndoorFeaturesForIMDFController {
 
 						FEATUREREFERENCE destination =new FEATUREREFERENCE();
 
-						if (relationshipJSON.get(i).get("destination").has("start")) {
-							String str = relationshipJSON.get(i).get("destination").get("start").asText()
+						if (relationshipJSON.get(i).get("destination").has("id")) {
+							String str = relationshipJSON.get(i).get("destination").get("id").asText()
 									.trim();
-							destination.setStart(str);
+							destination.setId(str);
 						}
-						if (relationshipJSON.get(i).get("destination").has("end")) {
-							String str = relationshipJSON.get(i).get("destination").get("end").asText()
+						if (relationshipJSON.get(i).get("destination").has("feature_type")) {
+							String str = relationshipJSON.get(i).get("destination").get("feature_type").asText()
 									.trim();
-							destination.setEnd(str);
+							destination.setFeatureType(str);
 						}
-						if (relationshipJSON.get(i).get("destination").has("modified")) {
-							String str = relationshipJSON.get(i).get("destination").get("modified")
-									.asText().trim();
-							destination.setModified(str);
-						}
+						
 						relationship.setDestination(destination);
 
 					}
 					if (relationshipJSON.get(i).has("origin")) {
 						FEATUREREFERENCE origin =new FEATUREREFERENCE();
 
-						if (relationshipJSON.get(i).get("origin").has("start")) {
-							String str = relationshipJSON.get(i).get("origin").get("start").asText()
+						if (relationshipJSON.get(i).get("origin").has("id")) {
+							String str = relationshipJSON.get(i).get("origin").get("id").asText()
 									.trim();
-							origin.setStart(str);
+							origin.setId(str);
 						}
-						if (relationshipJSON.get(i).get("origin").has("end")) {
-							String str = relationshipJSON.get(i).get("origin").get("end").asText().trim();
-							origin.setEnd(str);
+						if (relationshipJSON.get(i).get("origin").has("feature_type")) {
+							String str = relationshipJSON.get(i).get("origin").get("feature_type").asText().trim();
+							origin.setFeatureType(str);
 						}
-						if (relationshipJSON.get(i).get("origin").has("modified")) {
-							String str = relationshipJSON.get(i).get("origin").get("modified").asText()
-									.trim();
-							origin.setModified(str);
-						}
+						
 						relationship.setOrigin(origin);
 
 					}
@@ -476,21 +463,17 @@ public class IndoorFeaturesForIMDFController {
 						for (int j = 0; j < intermediaryJSON.size(); j++) {		
 							FEATUREREFERENCE intermediary = new FEATUREREFERENCE();
 
-							if (intermediaryJSON.get(j).has("start")) {
-								String str = intermediaryJSON.get(j).get("start")
+							if (intermediaryJSON.get(j).has("id")) {
+								String str = intermediaryJSON.get(j).get("id")
 										.asText().trim();
-								intermediary.setStart(str);
+								intermediary.setId(str);
 							}
-							if (intermediaryJSON.get(j).has("end")) {
-								String str = intermediaryJSON.get(j).get("end")
+							if (intermediaryJSON.get(j).has("feature_type")) {
+								String str = intermediaryJSON.get(j).get("feature_type")
 										.asText().trim();
-								intermediary.setEnd(str);
+								intermediary.setFeatureType(str);
 							}
-							if (intermediaryJSON.get(j).has("modified")) {
-								String str = intermediaryJSON.get(j).get("modified")
-										.asText().trim();
-								intermediary.setModified(str);
-							}
+							
 							intermediaryList.add(intermediary);
 						}
 						relationship.setIntermediary(intermediaryList);

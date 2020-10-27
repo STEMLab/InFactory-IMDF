@@ -15,6 +15,7 @@ import edu.pnu.stem.util.GeometryUtil;
 import net.opengis.indoorgml.core.v_1_0.IndoorFeaturesType;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.IndoorFeaturesForIMDFType;
 
+
 public class IndoorGMLMap implements Serializable {
 	protected ConcurrentHashMap<String, ConcurrentHashMap<String, Object>> collection;
 	private String docId;
