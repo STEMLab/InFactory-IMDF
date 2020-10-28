@@ -35,6 +35,7 @@ import edu.pnu.stem.feature.imdf.AmenityState;
 import edu.pnu.stem.feature.imdf.Labels;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.ACCESSIBILITYCATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.AMENITYCATEGORY;
+import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.LANGUAGETAG;
 
 @RestController
 @RequestMapping("/documents/{docId}/AmenityState")
@@ -100,11 +101,41 @@ public class AmenityStateController {
 			if (json.get("imdf").has("phone")) {
 				phone = json.get("imdf").get("phone").asText().trim();
 			}
-			if (json.get("imdf").has("name")) {
-				website = json.get("imdf").get("name").asText().trim();
+			if (json.get("imdf").has("feature_name")) {
+				feature_name = new Labels();
+
+				if (json.get("imdf").get("feature_name").has("language")) {
+					String str = json.get("imdf").get("feature_name").get("language").asText().trim();
+
+					for (LANGUAGETAG value : LANGUAGETAG.values()) {
+						if (str.toUpperCase().equals(value.toString())) {
+							feature_name.setLanguage(value);
+						}
+					}
+				}
+				if (json.get("imdf").get("feature_name").has("name")) {
+					String str = json.get("imdf").get("feature_name").get("name").asText().trim();
+					feature_name.setName(str);
+				}
+
 			}
 			if (json.get("imdf").has("alt_name")) {
-				website = json.get("imdf").get("alt_name").asText().trim();
+				alt_name = new Labels();
+				if (json.get("imdf").get("alt_name").has("language")) {
+					String str = json.get("imdf").get("alt_name").get("language").asText().trim();
+					for (LANGUAGETAG value : LANGUAGETAG.values()) {
+						if (str.toUpperCase().equals(value.toString())) {
+
+							alt_name.setLanguage(value);
+						}
+					}
+
+				}
+				if (json.get("imdf").get("alt_name").has("name")) {
+					String str = json.get("imdf").get("alt_name").get("name").asText().trim();
+
+					alt_name.setName(str);
+				}
 			}
 			if (json.get("imdf").has("website")) {
 				website = json.get("imdf").get("website").asText().trim();
