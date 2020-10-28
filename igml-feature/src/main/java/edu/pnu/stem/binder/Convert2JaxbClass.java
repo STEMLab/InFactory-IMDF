@@ -3,7 +3,6 @@ package edu.pnu.stem.binder;
 import java.util.ArrayList;
 import java.util.List;
 
-import javax.print.DocFlavor.STRING;
 import javax.xml.bind.JAXBElement;
 import javax.xml.bind.JAXBException;
 
@@ -1743,6 +1742,22 @@ public class Convert2JaxbClass {
 			}
 
 			newFeature.setAccessibility(accessibilityList);
+		}
+		if (feature.getFeatureName() != null) {
+			LabelsType labelsType = new LabelsType();
+
+			labelsType.setLanguage(feature.getFeatureName().getLanguage());
+			labelsType.setName(feature.getFeatureName().getName());
+			newFeature.setFeatureName(labelsType);
+		
+
+		}
+		if (feature.getAltName() != null) {
+			LabelsType labelsType = new LabelsType();
+			labelsType.setLanguage(feature.getAltName().getLanguage());
+			labelsType.setName(feature.getAltName().getName());
+			newFeature.setAltName(labelsType);
+
 		}
 
 		if (feature.getHours() != null) {

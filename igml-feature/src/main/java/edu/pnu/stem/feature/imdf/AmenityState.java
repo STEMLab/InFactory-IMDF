@@ -17,6 +17,7 @@ public class AmenityState extends State {
 	String address_id;
 	String correlation_id;
 	Labels alt_name;
+	Labels feature_name;
 
 	public AmenityState(IndoorGMLMap doc, String id) {
 		super(doc, id);
@@ -72,6 +73,16 @@ public class AmenityState extends State {
 	public Labels getAltName() {
 		
 		return alt_name;		
+	}
+	
+	public void setFeatureName(Labels feature_name) {
+		
+		this.feature_name = feature_name;		
+	}
+	
+	public Labels getFeatureName() {
+		
+		return feature_name;		
 	}
 
 	public void setHours(String hours) {

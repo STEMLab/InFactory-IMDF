@@ -17,6 +17,7 @@ public class Occupant {
 	String website;
 	Temporality validity;
 	Labels correlation_id;
+	Labels feature_name;
 	
 	public void setFeatureInformation(FeatureInformation featureInformation) {
 

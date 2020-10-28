@@ -32,6 +32,7 @@ import edu.pnu.stem.binder.IndoorGMLMap;
 import edu.pnu.stem.dao.AmenityStateDAO;
 import edu.pnu.stem.feature.core.State;
 import edu.pnu.stem.feature.imdf.AmenityState;
+import edu.pnu.stem.feature.imdf.Labels;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.ACCESSIBILITYCATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.AMENITYCATEGORY;
 
@@ -63,6 +64,8 @@ public class AmenityStateController {
 		String[] unit_ids = null;
 		String address_id = null;
 		String correlation_id = null;
+		Labels feature_name =null;
+		Labels alt_name =null;
 
 		if (id == null || id.isEmpty()) {
 			id = UUID.randomUUID().toString();
@@ -97,6 +100,12 @@ public class AmenityStateController {
 			if (json.get("imdf").has("phone")) {
 				phone = json.get("imdf").get("phone").asText().trim();
 			}
+			if (json.get("imdf").has("name")) {
+				website = json.get("imdf").get("name").asText().trim();
+			}
+			if (json.get("imdf").has("alt_name")) {
+				website = json.get("imdf").get("alt_name").asText().trim();
+			}
 			if (json.get("imdf").has("website")) {
 				website = json.get("imdf").get("website").asText().trim();
 			}
@@ -120,7 +129,7 @@ public class AmenityStateController {
 		try {
 			Container container = applicationContext.getBean(Container.class);
 			IndoorGMLMap map = container.getDocument(docId);
-			s = AmenityStateDAO.createAmenityState(map, parentId, id, name, description, geometry, duality, connected, category, accessibility, hours,phone, website, unit_ids, address_id,correlation_id);
+			s = AmenityStateDAO.createAmenityState(map, parentId, id, name, description, geometry, duality, connected, category, accessibility, feature_name, alt_name ,hours,phone, website, unit_ids, address_id,correlation_id);
 		} catch (NullPointerException e) {
 			e.printStackTrace();
 			throw new UndefinedDocumentException();

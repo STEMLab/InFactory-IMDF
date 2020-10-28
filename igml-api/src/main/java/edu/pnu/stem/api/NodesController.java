@@ -56,8 +56,7 @@ public class NodesController {
 		
 		if(id == null || id.isEmpty()) {
 			id = UUID.randomUUID().toString();
-		}
-		
+		}	
 		
 		if(json.has("properties")) {
 			if(json.get("properties").has("name")) {

@@ -15,6 +15,7 @@ import edu.pnu.stem.feature.core.Nodes;
 import edu.pnu.stem.feature.core.State;
 import edu.pnu.stem.feature.core.Transition;
 import edu.pnu.stem.feature.imdf.AmenityState;
+import edu.pnu.stem.feature.imdf.Labels;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.ACCESSIBILITYCATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.AMENITYCATEGORY;
 
@@ -30,7 +31,7 @@ public class AmenityStateDAO {
 	}
 
 	public static AmenityState createAmenityState(IndoorGMLMap map, String parentId, String id, String name, String description,
-			Geometry geometry, String duality, List<String> connects, AMENITYCATEGORY category, ACCESSIBILITYCATEGORY[] accessibility, String hours, String phone, String website, String[] unit_ids, String address_id, String correlation_id) {
+			Geometry geometry, String duality, List<String> connects, AMENITYCATEGORY category, ACCESSIBILITYCATEGORY[] accessibility, Labels feature_name, Labels alt_name, String hours, String phone, String website, String[] unit_ids, String address_id, String correlation_id) {
 
 		if (id == null) {
 			id = UUID.randomUUID().toString();
@@ -107,6 +108,13 @@ public class AmenityStateDAO {
 			newFeature.setAccessibilitycategory(accessibility);
 			
 		}
+		if(feature_name != null) {
+			newFeature.setFeatureName(feature_name);
+		}
+		if(alt_name !=null) {
+			newFeature.setAltName(alt_name);
+		}	
+		
 		if(hours != null) {
 			newFeature.setHours(hours);			
 		}

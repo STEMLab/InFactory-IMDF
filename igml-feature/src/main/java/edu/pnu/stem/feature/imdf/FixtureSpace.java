@@ -11,6 +11,8 @@ public class FixtureSpace extends CellSpace{
 	String anchor_id;
 	String level_id;
 	String parentId;
+	Labels alt_name;
+	Labels feature_name;
 	
 	public void setParent(PrimalSpaceFeatures parent) {
 		PrimalSpaceFeatures found = null;
@@ -47,6 +49,22 @@ public class FixtureSpace extends CellSpace{
 	}
 	public String getLevelId() {
 		return level_id;
+	}
+	public void setAltName(Labels alt_name) {
+		
+		this.alt_name = alt_name;		
+	}	
+	public Labels getAltName() {
+		
+		return alt_name;		
+	}	
+	public void setFeatureName(Labels feature_name) {
+		
+		this.feature_name = feature_name;		
+	}	
+	public Labels getFeatureName() {
+		
+		return feature_name;		
 	}
 	
 
