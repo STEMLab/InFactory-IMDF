@@ -103,9 +103,7 @@ public class OpeningCellSpaceBoundaryDAO {
 		if (door != null) {
 			newFeature.setDoor(door); 
 		}
-		if (door != null) {
-			newFeature.setDoor(door); 
-		}
+		
 		if (feature_name != null) {
 			newFeature.setFeatureName(feature_name); 
 		}

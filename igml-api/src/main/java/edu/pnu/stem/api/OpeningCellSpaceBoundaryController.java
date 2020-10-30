@@ -145,34 +145,33 @@ public class OpeningCellSpaceBoundaryController {
 			if (json.get("imdf").has("accessibility")) {
 
 				JsonNode accessibilityList = json.get("imdf").get("accessibility");
+				accessibility = new ACCESSIBILITYCATEGORY[accessibilityList.size()];
 
 				for (ACCESSIBILITYCATEGORY value : ACCESSIBILITYCATEGORY.values()) {
 
 					for (int i = 0; i < accessibilityList.size(); i++) {
-						String str = json.get("imdf").get("accessibility").asText().trim();
-
-						if (str.toUpperCase().equals(value.toString())) {
-
+						String str = accessibilityList.get(i).asText().trim();
+					
+						if (str.toUpperCase().equals(value.toString().toUpperCase())) {
 							accessibility[i] = value;
 						}
-
 					}
-
 				}
-
 			}
 			if (json.get("imdf").has("access_control")) {
 
 				JsonNode access_controlList = json.get("imdf").get("access_control");
+				access_control = new ACCESSCONTROLCATEGORY[access_controlList.size()];
 
-				for (ACCESSCONTROLCATEGORY value : ACCESSCONTROLCATEGORY.values()) {
+				for (ACCESSCONTROLCATEGORY value : ACCESSCONTROLCATEGORY.values()) {				
 
 					for (int i = 0; i < access_controlList.size(); i++) {
-						String str = json.get("imdf").get("access_control").asText().trim();
-
-						if (str.toUpperCase().equals(value.toString())) {
+						String str =access_controlList.get(i).asText().trim();
+						
+						if (str.toUpperCase().equals(value.toString().toUpperCase())) {
 
 							access_control[i] = value;
+							
 						}
 
 					}
@@ -202,12 +201,13 @@ public class OpeningCellSpaceBoundaryController {
 					}
 
 				}
-
+				if (json.get("imdf").get("door").has("material")) {
+					String material = json.get("imdf").get("door").get("material").asText().trim();
+					door.setMaterial(material);
+				}
 			}
-
 			if (json.get("imdf").has("feature_name")) {
 				feature_name = new Labels();
-
 				if (json.get("imdf").get("feature_name").has("language")) {
 					String str = json.get("imdf").get("feature_name").get("language").asText().trim();
 
@@ -229,15 +229,12 @@ public class OpeningCellSpaceBoundaryController {
 					String str = json.get("imdf").get("alt_name").get("language").asText().trim();
 					for (LANGUAGETAG value : LANGUAGETAG.values()) {
 						if (str.toUpperCase().equals(value.toString())) {
-
 							alt_name.setLanguage(value);
 						}
 					}
-
 				}
 				if (json.get("imdf").get("alt_name").has("name")) {
 					String str = json.get("imdf").get("alt_name").get("name").asText().trim();
-
 					alt_name.setName(str);
 				}
 			}
@@ -294,9 +291,7 @@ public class OpeningCellSpaceBoundaryController {
 			if (json.has("properties")) {
 				if (json.get("properties").has("duality")) {
 					duality = json.get("properties").get("duality").asText().trim();
-
 				}
-
 			}
 			if (json.has("geometry")) {
 				geometry = json.get("geometry");

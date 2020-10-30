@@ -44,7 +44,7 @@ public class BuildingStateDAO {
 		} else {
 			map.setFutureFeature(id, newFeature);
 		}
-		map.setFeature(id, "State", newFeature);
+		map.setFeature(id, "BuildingState", newFeature);
 
 		Nodes parent = (Nodes) map.getFeature(parentId);
 		if (parent == null) {

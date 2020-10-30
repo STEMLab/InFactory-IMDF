@@ -202,35 +202,29 @@ public class IndoorFeaturesForIMDFController {
 				JsonNode occupantJson = json.get("imdf").get("occupant");
 
 				for (int i = 0; i < occupantJson.size(); i++) {
-					
+
 					Occupant occupant = new Occupant();
 
 					if (occupantJson.get(i).has("featureInformation")) {
-						System.out.println("Ocuupnat featureInformation");
 
 						FeatureInformation featureInformation = new FeatureInformation();
-						
 
 						if (occupantJson.get(i).get("featureInformation").has("id")) {
 
-							String str = occupantJson.get(i).get("featureInformation").get("id").asText()
-									.trim();
-							System.out.println("featureInformation id:"+str);
+							String str = occupantJson.get(i).get("featureInformation").get("id").asText().trim();
 
 							featureInformation.setId(str);
 						}
 						if (occupantJson.get(i).get("featureInformation").has("type")) {
 
-							String str = occupantJson.get(i).get("featureInformation").get("type").asText()
-									.trim();
-							System.out.println("featureInformation type:"+str);
+							String str = occupantJson.get(i).get("featureInformation").get("type").asText().trim();
 
 							featureInformation.setType(str);
 						}
 						if (occupantJson.get(i).get("featureInformation").has("feature_type")) {
 
-							String str = occupantJson.get(i).get("featureInformation").get("feature_type")
-									.asText().trim();
+							String str = occupantJson.get(i).get("featureInformation").get("feature_type").asText()
+									.trim();
 
 							for (FEATURECATEGORY value : FEATURECATEGORY.values()) {
 								if (str.toUpperCase().equals(value.toString())) {
@@ -240,8 +234,8 @@ public class IndoorFeaturesForIMDFController {
 						}
 						if (occupantJson.get(i).get("featureInformation").has("gml_geometry")) {
 
-							String str = occupantJson.get(i).get("featureInformation").get("gml_geometry")
-									.asText().trim();
+							String str = occupantJson.get(i).get("featureInformation").get("gml_geometry").asText()
+									.trim();
 
 							featureInformation.setGmlGeometry(str);
 						}
@@ -294,8 +288,7 @@ public class IndoorFeaturesForIMDFController {
 						Temporality temporality = new Temporality();
 						if (occupantJson.get(i).get("validity").has("start")) {
 
-							String start = occupantJson.get(i).get("validity").get("start").asText()
-									.trim();
+							String start = occupantJson.get(i).get("validity").get("start").asText().trim();
 
 							temporality.setStart(start);
 						}
@@ -307,8 +300,7 @@ public class IndoorFeaturesForIMDFController {
 						}
 						if (occupantJson.get(i).get("validity").has("modified")) {
 
-							String modified = occupantJson.get(i).get("validity").get("modified").asText()
-									.trim();
+							String modified = occupantJson.get(i).get("validity").get("modified").asText().trim();
 
 							temporality.setModified(modified);
 						}
@@ -319,8 +311,7 @@ public class IndoorFeaturesForIMDFController {
 					if (occupantJson.get(i).has("correlation_id")) {
 						Labels correlation_id = new Labels();
 						if (occupantJson.get(i).get("correlation_id").has("language")) {
-							String language = occupantJson.get(i).get("correlation_id").get("language")
-									.asText().trim();
+							String language = occupantJson.get(i).get("correlation_id").get("language").asText().trim();
 							for (LANGUAGETAG value : LANGUAGETAG.values()) {
 								if (language.toUpperCase().equals(value.toString())) {
 
@@ -330,8 +321,7 @@ public class IndoorFeaturesForIMDFController {
 
 						}
 						if (occupantJson.get(i).get("correlation_id").has("name")) {
-							String name1 = occupantJson.get(i).get("correlation_id").get("name").asText()
-									.trim();
+							String name1 = occupantJson.get(i).get("correlation_id").get("name").asText().trim();
 
 							correlation_id.setName(name1);
 						}
@@ -364,15 +354,14 @@ public class IndoorFeaturesForIMDFController {
 						}
 						if (relationshipJSON.get(i).get("featureInformation").has("type")) {
 
-							String str = relationshipJSON.get(i).get("featureInformation").get("type")
-									.asText().trim();
+							String str = relationshipJSON.get(i).get("featureInformation").get("type").asText().trim();
 
 							featureInformation.setType(str);
 						}
 						if (relationshipJSON.get(i).get("featureInformation").has("feature_type")) {
 
-							String feature_type = relationshipJSON.get(i).get("featureInformation")
-									.get("feature_type").asText().trim();
+							String feature_type = relationshipJSON.get(i).get("featureInformation").get("feature_type")
+									.asText().trim();
 
 							for (FEATURECATEGORY value : FEATURECATEGORY.values()) {
 								if (feature_type.toUpperCase().equals(value.toString())) {
@@ -382,8 +371,8 @@ public class IndoorFeaturesForIMDFController {
 						}
 						if (relationshipJSON.get(i).get("featureInformation").has("gml_geometry")) {
 
-							String gml_geometry = relationshipJSON.get(i).get("featureInformation")
-									.get("gml_geometry").asText().trim();
+							String gml_geometry = relationshipJSON.get(i).get("featureInformation").get("gml_geometry")
+									.asText().trim();
 
 							featureInformation.setGmlGeometry(gml_geometry);
 						}
@@ -423,57 +412,51 @@ public class IndoorFeaturesForIMDFController {
 					}
 					if (relationshipJSON.get(i).has("destination")) {
 
-						FEATUREREFERENCE destination =new FEATUREREFERENCE();
+						FEATUREREFERENCE destination = new FEATUREREFERENCE();
 
 						if (relationshipJSON.get(i).get("destination").has("id")) {
-							String str = relationshipJSON.get(i).get("destination").get("id").asText()
-									.trim();
+							String str = relationshipJSON.get(i).get("destination").get("id").asText().trim();
 							destination.setId(str);
 						}
 						if (relationshipJSON.get(i).get("destination").has("feature_type")) {
-							String str = relationshipJSON.get(i).get("destination").get("feature_type").asText()
-									.trim();
+							String str = relationshipJSON.get(i).get("destination").get("feature_type").asText().trim();
 							destination.setFeatureType(str);
 						}
-						
+
 						relationship.setDestination(destination);
 
 					}
 					if (relationshipJSON.get(i).has("origin")) {
-						FEATUREREFERENCE origin =new FEATUREREFERENCE();
+						FEATUREREFERENCE origin = new FEATUREREFERENCE();
 
 						if (relationshipJSON.get(i).get("origin").has("id")) {
-							String str = relationshipJSON.get(i).get("origin").get("id").asText()
-									.trim();
+							String str = relationshipJSON.get(i).get("origin").get("id").asText().trim();
 							origin.setId(str);
 						}
 						if (relationshipJSON.get(i).get("origin").has("feature_type")) {
 							String str = relationshipJSON.get(i).get("origin").get("feature_type").asText().trim();
 							origin.setFeatureType(str);
 						}
-						
+
 						relationship.setOrigin(origin);
 
 					}
 					if (relationshipJSON.get(i).has("intermediary")) {
 						ArrayList<FEATUREREFERENCE> intermediaryList = new ArrayList<FEATUREREFERENCE>();
-						
-						
+
 						JsonNode intermediaryJSON = relationshipJSON.get(i).get("intermediary");
-						for (int j = 0; j < intermediaryJSON.size(); j++) {		
+						for (int j = 0; j < intermediaryJSON.size(); j++) {
 							FEATUREREFERENCE intermediary = new FEATUREREFERENCE();
 
 							if (intermediaryJSON.get(j).has("id")) {
-								String str = intermediaryJSON.get(j).get("id")
-										.asText().trim();
+								String str = intermediaryJSON.get(j).get("id").asText().trim();
 								intermediary.setId(str);
 							}
 							if (intermediaryJSON.get(j).has("feature_type")) {
-								String str = intermediaryJSON.get(j).get("feature_type")
-										.asText().trim();
+								String str = intermediaryJSON.get(j).get("feature_type").asText().trim();
 								intermediary.setFeatureType(str);
 							}
-							
+
 							intermediaryList.add(intermediary);
 						}
 						relationship.setIntermediary(intermediaryList);

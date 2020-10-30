@@ -43,7 +43,7 @@ public class AnchorStateDAO {
 		} else {
 			map.setFutureFeature(id, newFeature);
 		}
-		map.setFeature(id, "State", newFeature);
+		map.setFeature(id, "AnchorState", newFeature);
 
 		Nodes parent = (Nodes) map.getFeature(parentId);
 		if (parent == null) {

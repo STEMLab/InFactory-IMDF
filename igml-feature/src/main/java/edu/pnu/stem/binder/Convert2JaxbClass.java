@@ -1637,6 +1637,7 @@ public class Convert2JaxbClass {
 			for (ACCESSIBILITYCATEGORY accessibility : feature.getAccessibilityCategory()) {
 
 				accessibilityList.add(accessibility);
+				System.out.println(accessibility);
 			}
 			newFeature.setAccessibility(accessibilityList);
 		}
@@ -1647,6 +1648,7 @@ public class Convert2JaxbClass {
 			for (ACCESSCONTROLCATEGORY accessControll : feature.getAccessControlCategory()) {
 
 				accessControllList.add(accessControll);
+				System.out.println(accessControll);
 			}
 			newFeature.setAccessControl(accessControllList);
 		}
