@@ -12,6 +12,7 @@ import edu.pnu.stem.feature.core.CellSpaceBoundary;
 import edu.pnu.stem.feature.core.PrimalSpaceFeatures;
 import edu.pnu.stem.feature.core.State;
 import edu.pnu.stem.feature.imdf.FixtureSpace;
+import edu.pnu.stem.feature.imdf.Labels;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FIXTURECATEGORY;
 
 public class FixtureSpaceDAO {
@@ -102,7 +103,7 @@ public class FixtureSpaceDAO {
 
 	public static FixtureSpace createFixtureSpace(IndoorGMLMap map, String parentId, String id, String name,
 			String description, Geometry geometry, String duality, List<String> level, List<String> partialBoundedBy,
-			FIXTURECATEGORY category, String anchor_id, String level_id) {
+			FIXTURECATEGORY category, String anchor_id, String level_id, Labels feature_name, Labels alt_name) {
 
 		if (id == null) {
 			id = UUID.randomUUID().toString();
@@ -194,7 +195,12 @@ public class FixtureSpaceDAO {
 		if (level_id != null) {
 
 			newFeature.setLevelId(level_id);
-
+		}
+		if (feature_name != null) {
+			newFeature.setFeatureName(feature_name);
+		}
+		if (alt_name != null) {
+			newFeature.setAltName(alt_name);
 		}
 
 		map.removeFutureID(id);

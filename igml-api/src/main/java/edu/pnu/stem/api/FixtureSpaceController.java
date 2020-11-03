@@ -189,7 +189,7 @@ public class FixtureSpaceController {
 			}
 			 * */
 			
-			c = FixtureSpaceDAO.createFixtureSpace(map, parentId, id, name, description, cellGeometry, duality, level, partialBoundedBy, category, anchor_id, level_id);
+			c = FixtureSpaceDAO.createFixtureSpace(map, parentId, id, name, description, cellGeometry, duality, level, partialBoundedBy, category, anchor_id, level_id, feature_name, alt_name);
 			
 		} catch (NullPointerException e) {
 			e.printStackTrace();
