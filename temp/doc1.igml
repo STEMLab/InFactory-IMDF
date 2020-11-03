@@ -1,5 +1,5 @@
 
-<core:IndoorFeatures xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:core="http://www.opengis.net/indoorgml/1.0/core" xmlns:navi="http://www.opengis.net/indoorgml/1.0/navigation" xmlns:imdf="https://0vollov0.github.io/imdfToIndoorGML_XSD" xmlns:ns6="http://indoorgml.net/repository/NonNaviSpace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="imdf:IndoorFeaturesForIMDFType" gml:id="If4imdf1" xsi:schemaLocation="http://www.opengis.net/indoorgml/1.0/core http://schemas.opengis.net/indoorgml/1.0/indoorgmlcore.xsd http://www.opengis.net/indoorgml/1.0/navigation http://schemas.opengis.net/indoorgml/1.0/indoorgmlnavi.xsdhttps://0vollov0.github.io/imdfToIndoorGML_XSD https://0vollov0.github.io/imdfToIndoorGML_XSD/indoorgmlimdf.xsd">
+<core:IndoorFeatures xmlns:gml="http://www.opengis.net/gml/3.2" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:core="http://www.opengis.net/indoorgml/1.0/core" xmlns:imdf="https://0vollov0.github.io/imdfToIndoorGML_XSD" xmlns:navi="http://www.opengis.net/indoorgml/1.0/navigation" xmlns:ns6="http://indoorgml.net/repository/NonNaviSpace" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:type="imdf:IndoorFeaturesForIMDFType" gml:id="If4imdf1" xsi:schemaLocation="http://www.opengis.net/indoorgml/1.0/core http://schemas.opengis.net/indoorgml/1.0/indoorgmlcore.xsd http://www.opengis.net/indoorgml/1.0/navigation http://schemas.opengis.net/indoorgml/1.0/indoorgmlnavi.xsdhttps://0vollov0.github.io/imdfToIndoorGML_XSD https://0vollov0.github.io/imdfToIndoorGML_XSD/indoorgmlimdf.xsd">
     <gml:boundedBy xsi:nil="true"/>
     <core:primalSpaceFeatures>
         <core:PrimalSpaceFeatures gml:id="psf1">
@@ -85,16 +85,14 @@
         <imdf:anchor_id>anchor_id</imdf:anchor_id>
         <imdf:hours>hours</imdf:hours>
         <imdf:ordinal>ordinal</imdf:ordinal>
+        <imdf:phone>ordinal</imdf:phone>
         <imdf:website>website</imdf:website>
         <imdf:validity>
             <imdf:start>start1</imdf:start>
             <imdf:end>end1</imdf:end>
             <imdf:modified>modified</imdf:modified>
         </imdf:validity>
-        <imdf:correlation_id>
-            <imdf:language>ko-KR</imdf:language>
-            <imdf:name>name</imdf:name>
-        </imdf:correlation_id>
+        <imdf:correlation_id></imdf:correlation_id>
     </imdf:occupant>
     <imdf:occupant>
         <imdf:featureInformation>
@@ -106,17 +104,15 @@
         <imdf:category>cosmetics</imdf:category>
         <imdf:anchor_id>anchor_id</imdf:anchor_id>
         <imdf:hours>hours</imdf:hours>
-        <imdf:ordinal>ordinal</imdf:ordinal>
+        <imdf:ordinal>1</imdf:ordinal>
+        <imdf:phone>1</imdf:phone>
         <imdf:website>website</imdf:website>
         <imdf:validity>
             <imdf:start>start1</imdf:start>
             <imdf:end>end1</imdf:end>
             <imdf:modified>modified2</imdf:modified>
         </imdf:validity>
-        <imdf:correlation_id>
-            <imdf:language>ko-KR</imdf:language>
-            <imdf:name>name</imdf:name>
-        </imdf:correlation_id>
+        <imdf:correlation_id>ste</imdf:correlation_id>
     </imdf:occupant>
     <imdf:realationship>
         <imdf:featureInformation>

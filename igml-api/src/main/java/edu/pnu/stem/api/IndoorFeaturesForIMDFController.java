@@ -270,7 +270,7 @@ public class IndoorFeaturesForIMDFController {
 					}
 					if (occupantJson.get(i).has("phone")) {
 						
-						String phones = occupantJson.get(i).get("ordinal").asText().trim();
+						String phone = occupantJson.get(i).get("phone").asText().trim();
 
 //						JsonNode phone = occupantJson.get(i).get("phone");
 //						String[] phones = new String[phone.size()];
@@ -278,7 +278,7 @@ public class IndoorFeaturesForIMDFController {
 //							phones[j] = phone.get(j).asText().trim();
 //						}
 
-						occupant.setPhone(phones);
+						occupant.setPhone(phone);
 
 					}
 					if (occupantJson.get(i).has("website")) {
@@ -466,11 +466,8 @@ public class IndoorFeaturesForIMDFController {
 
 					}
 					relationshipList.add(relationship);
-
 				}
-
 			}
-
 		}
 
 		IndoorFeaturesForIMDF f;
