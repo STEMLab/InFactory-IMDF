@@ -14,16 +14,22 @@ public class FixtureSpace extends CellSpace{
 	Labels alt_name;
 	Labels feature_name;
 	
-	public void setParent(PrimalSpaceFeatures parent) {
-		PrimalSpaceFeatures found = null;
-		found = (PrimalSpaceFeatures)indoorGMLMap.getFeature(parent.getId());
-		if(found == null){
+	public void setParent(CellSpace parent) {
+		CellSpace found = null;
+		found = (CellSpace) indoorGMLMap.getFeature(parent.getId());
+		if (found == null) {
 			indoorGMLMap.setFutureFeature(parent.getId(), parent);
 		}
-		this.parentId = parent.getId();		
+		this.parentId = parent.getId();
 	}
-	public void resetParent() {
-		this.parentId = null;		
+
+	public CellSpace getCellSpaceFeature() {
+		CellSpace feature = null;
+		feature = (CellSpace) indoorGMLMap.getFeature(this.parentId);
+		if (feature == null) {
+			feature = (CellSpace) indoorGMLMap.getFutureFeature(this.parentId);
+		}
+		return feature;
 	}
 	
 	public FixtureSpace(IndoorGMLMap doc, String id) {

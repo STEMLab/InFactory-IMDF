@@ -9,8 +9,27 @@ public class FootPrintSpace extends CellSpace{
 	FeatureInformation featureInformation;
 	FEATURECATEGORY category;
 	String[] building_ids;
+	String parentId;
 	Labels feature_name;
 //	String[] sibling_polygon_ids;
+	
+	public void setParent(CellSpace parent) {
+		CellSpace found = null;
+		found = (CellSpace) indoorGMLMap.getFeature(parent.getId());
+		if (found == null) {
+			indoorGMLMap.setFutureFeature(parent.getId(), parent);
+		}
+		this.parentId = parent.getId();
+	}
+
+	public CellSpace getCellSpaceFeature() {
+		CellSpace feature = null;
+		feature = (CellSpace) indoorGMLMap.getFeature(this.parentId);
+		if (feature == null) {
+			feature = (CellSpace) indoorGMLMap.getFutureFeature(this.parentId);
+		}
+		return feature;
+	}
 
 	public FootPrintSpace(IndoorGMLMap doc, String id) {
 		super(doc, id);
