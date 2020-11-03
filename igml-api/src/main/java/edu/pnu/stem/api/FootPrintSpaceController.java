@@ -182,15 +182,7 @@ public class FootPrintSpaceController {
 				}
 
 			}
-			if (json.get("imdf").has("sibling_polygon_ids")) {
-
-				JsonNode sibling_polygon_id = json.get("imdf").get("sibling_polygon_ids");
-				sibling_polygon_ids = new String[sibling_polygon_id.size()];
-				for (int i = 0; i < sibling_polygon_id.size(); i++) {
-					sibling_polygon_ids[i] = sibling_polygon_id.get(i).asText().trim();
-
-				}
-			}
+		
 
 		}
 
@@ -209,8 +201,7 @@ public class FootPrintSpaceController {
 			IndoorGMLMap map = container.getDocument(docId);
 
 			c = FootPrintSpaceDAO.createFootPrintSpace(map, parentId, id, name, description, geofenceGeometry, duality,
-					level, partialBoundedBy, featureInformation, category, building_ids, feature_name,
-					sibling_polygon_ids);
+					level, partialBoundedBy, featureInformation, category, building_ids, feature_name);
 
 		} catch (NullPointerException e) {
 			e.printStackTrace();

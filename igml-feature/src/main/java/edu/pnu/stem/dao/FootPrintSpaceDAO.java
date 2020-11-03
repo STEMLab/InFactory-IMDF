@@ -104,8 +104,8 @@ public class FootPrintSpaceDAO {
 
 	public static FootPrintSpace createFootPrintSpace(IndoorGMLMap map, String parentId, String id, String name,
 			String description, Geometry geometry, String duality, List<String> level, List<String> partialBoundedBy,
-			FeatureInformation featureInformation, FEATURECATEGORY category, String[] building_ids, Labels feature_name,
-			String[] sibling_polygon_ids) {
+			FeatureInformation featureInformation, FEATURECATEGORY category, String[] building_ids,
+			Labels feature_name) {
 
 		if (id == null) {
 			id = UUID.randomUUID().toString();
@@ -203,11 +203,6 @@ public class FootPrintSpaceDAO {
 		if (feature_name != null) {
 
 			newFeature.setFeatureName(feature_name);
-
-		}
-		if (sibling_polygon_ids != null) {
-
-			newFeature.setSilingPolygonIds(sibling_polygon_ids);
 
 		}
 

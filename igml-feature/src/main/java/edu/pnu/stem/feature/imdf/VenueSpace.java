@@ -12,9 +12,11 @@ public class VenueSpace extends CellSpace {
 	RESTRICTIONCATEGORY restriction;
 	String hours;
 	String phone;
+	String address_id;
 	String website;
 	Labels feature_name;
 	Labels alt_name;
+
 
 	public VenueSpace(IndoorGMLMap doc, String id) {
 		super(doc, id);
@@ -99,6 +101,13 @@ public class VenueSpace extends CellSpace {
 	public Labels getAltName() {
 
 		return alt_name;
+	}
+	public void setAddressID(String address_id) {
+		this.address_id = address_id;
+		
+	}
+	public String getAddressID() {
+		return address_id;
 	}
 
 }

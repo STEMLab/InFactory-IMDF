@@ -10,7 +10,7 @@ public class FootPrintSpace extends CellSpace{
 	FEATURECATEGORY category;
 	String[] building_ids;
 	Labels feature_name;
-	String[] sibling_polygon_ids;
+//	String[] sibling_polygon_ids;
 
 	public FootPrintSpace(IndoorGMLMap doc, String id) {
 		super(doc, id);
@@ -48,12 +48,12 @@ public class FootPrintSpace extends CellSpace{
 		return feature_name;
 	}
 	
-	public void setSilingPolygonIds(String[] sibling_polygon_ids) {
-		this.sibling_polygon_ids = sibling_polygon_ids;
-	}
-	
-	public String[] getSilingPolygonIds() {
-		return sibling_polygon_ids;
-	}
+//	public void setSilingPolygonIds(String[] sibling_polygon_ids) {
+//		this.sibling_polygon_ids = sibling_polygon_ids;
+//	}
+//	
+//	public String[] getSilingPolygonIds() {
+//		return sibling_polygon_ids;
+//	}
 
 }

@@ -459,13 +459,13 @@ public class Convert2JaxbClass {
 				}
 				if (occupantList.get(i).getPhone() != null) {
 
-					List<String> phones = new ArrayList<String>();
-
-					for (String phone : occupantList.get(i).getPhone()) {
-						phones.add(phone);
-
-					}
-					occupantType.setPhone(phones);
+//					List<String> phones = new ArrayList<String>();
+//
+//					for (String phone : occupantList.get(i).getPhone()) {
+//						phones.add(phone);
+//
+//					}
+					occupantType.setPhone(occupantList.get(i).getPhone());
 				}
 				if (occupantList.get(i).getWebsite() != null) {
 
@@ -481,11 +481,11 @@ public class Convert2JaxbClass {
 				}
 				if (occupantList.get(i).getCorrelationId() != null) {
 
-					LabelsType labelsType = new LabelsType();
-					labelsType.setLanguage(occupantList.get(i).getCorrelationId().getLanguage());
-					labelsType.setName(occupantList.get(i).getCorrelationId().getName());
+//					LabelsType labelsType = new LabelsType();
+//					labelsType.setLanguage(occupantList.get(i).getCorrelationId().getLanguage());
+//					labelsType.setName(occupantList.get(i).getCorrelationId().getName());
 
-					occupantType.setCorrelationId(labelsType);
+					occupantType.setCorrelationId(occupantList.get(i).getCorrelationId());
 				}
 
 				occupantTypeList.add(occupantType);

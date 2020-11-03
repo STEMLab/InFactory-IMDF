@@ -61,8 +61,8 @@ public class LevelSpaceController {
 		FeatureInformation featureInformation = null;
 		LEVELCATEGORY category = null;
 		RESTRICTIONCATEGORY restriction = null;
-		String outdoor = null;
-		String ordinal = null;
+		Boolean outdoor = null;
+		int ordinal = 0;
 		String address_id = null;
 		String[] building_ids = null;
 		Labels feature_name = null;
@@ -155,7 +155,6 @@ public class LevelSpaceController {
 				for (LEVELCATEGORY value : LEVELCATEGORY.values()) {
 					if (str.toUpperCase().equals(value.toString())) {
 						category = value;
-
 					}
 				}
 			}
@@ -172,18 +171,21 @@ public class LevelSpaceController {
 			}
 
 			if (json.get("imdf").has("outdoor")) {
-
-				outdoor = json.get("imdf").get("outdoor").asText().trim();
-
+				if(json.get("imdf").get("outdoor").asText().trim().toUpperCase().equals("false".toUpperCase())) {
+					outdoor = false;
+				}
+				else {
+					outdoor = true;
+				}
 			}
 			if (json.get("imdf").has("ordinal")) {
 
-				outdoor = json.get("imdf").get("ordinal").asText().trim();
+				ordinal = Integer.parseInt(json.get("imdf").get("ordinal").asText().trim());
 
 			}
 			if (json.get("imdf").has("address_id")) {
 
-				outdoor = json.get("imdf").get("address_id").asText().trim();
+				address_id = json.get("imdf").get("address_id").asText().trim();
 
 			}
 

@@ -269,12 +269,14 @@ public class IndoorFeaturesForIMDFController {
 
 					}
 					if (occupantJson.get(i).has("phone")) {
+						
+						String phones = occupantJson.get(i).get("ordinal").asText().trim();
 
-						JsonNode phone = occupantJson.get(i).get("phone");
-						String[] phones = new String[phone.size()];
-						for (int j = 0; j < phone.size(); j++) {
-							phones[j] = phone.get(j).asText().trim();
-						}
+//						JsonNode phone = occupantJson.get(i).get("phone");
+//						String[] phones = new String[phone.size()];
+//						for (int j = 0; j < phone.size(); j++) {
+//							phones[j] = phone.get(j).asText().trim();
+//						}
 
 						occupant.setPhone(phones);
 
@@ -309,22 +311,23 @@ public class IndoorFeaturesForIMDFController {
 
 					}
 					if (occupantJson.get(i).has("correlation_id")) {
-						Labels correlation_id = new Labels();
-						if (occupantJson.get(i).get("correlation_id").has("language")) {
-							String language = occupantJson.get(i).get("correlation_id").get("language").asText().trim();
-							for (LANGUAGETAG value : LANGUAGETAG.values()) {
-								if (language.toUpperCase().equals(value.toString())) {
-
-									correlation_id.setLanguage(value);
-								}
-							}
-
-						}
-						if (occupantJson.get(i).get("correlation_id").has("name")) {
-							String name1 = occupantJson.get(i).get("correlation_id").get("name").asText().trim();
-
-							correlation_id.setName(name1);
-						}
+						String correlation_id = new String();
+						correlation_id = occupantJson.get(i).get("correlation_id").asText().trim();
+//						if (occupantJson.get(i).get("correlation_id").has("language")) {
+//							String language = occupantJson.get(i).get("correlation_id").get("language").asText().trim();
+//							for (LANGUAGETAG value : LANGUAGETAG.values()) {
+//								if (language.toUpperCase().equals(value.toString())) {
+//
+//									correlation_id.setLanguage(value);
+//								}
+//							}
+//
+//						}
+//						if (occupantJson.get(i).get("correlation_id").has("name")) {
+//							String name1 = occupantJson.get(i).get("correlation_id").get("name").asText().trim();
+//
+//							correlation_id.setName(name1);
+//						}
 						occupant.setCorrelationId(correlation_id);
 
 					}

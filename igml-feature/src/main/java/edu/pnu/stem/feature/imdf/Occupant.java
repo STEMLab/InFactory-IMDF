@@ -13,10 +13,10 @@ public class Occupant {
 	private String anchor_id;
 	private String hours;
 	private String ordinal;
-	String[] phone;
+	String phone;
 	String website;
 	Temporality validity;
-	Labels correlation_id;
+	String correlation_id;
 	Labels feature_name;
 	
 	public void setFeatureInformation(FeatureInformation featureInformation) {
@@ -65,12 +65,12 @@ public class Occupant {
 
 		return ordinal;
 	}
-	public void setPhone(String[] phones) {
+	public void setPhone(String phones) {
 
 		this.phone = phones;
 	}
 
-	public String[] getPhone() {
+	public String getPhone() {
 
 		return phone;
 	}
@@ -92,12 +92,12 @@ public class Occupant {
 
 		return validity;
 	}
-	public void setCorrelationId(Labels correlation_id) {
+	public void setCorrelationId(String correlation_id) {
 
 		this.correlation_id = correlation_id;
 	}
 
-	public Labels getCorrelationId() {
+	public String getCorrelationId() {
 
 		return correlation_id;
 	}

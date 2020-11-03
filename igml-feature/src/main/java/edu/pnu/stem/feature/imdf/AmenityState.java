@@ -65,24 +65,25 @@ public class AmenityState extends State {
 
 		return accessibility;
 	}
+
 	public void setAltName(Labels alt_name) {
-		
-		this.alt_name = alt_name;		
+
+		this.alt_name = alt_name;
 	}
-	
+
 	public Labels getAltName() {
-		
-		return alt_name;		
+
+		return alt_name;
 	}
-	
+
 	public void setFeatureName(Labels feature_name) {
-		
-		this.feature_name = feature_name;		
+
+		this.feature_name = feature_name;
 	}
-	
+
 	public Labels getFeatureName() {
-		
-		return feature_name;		
+
+		return feature_name;
 	}
 
 	public void setHours(String hours) {

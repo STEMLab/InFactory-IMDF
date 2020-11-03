@@ -4,48 +4,51 @@
     <core:primalSpaceFeatures>
         <core:PrimalSpaceFeatures gml:id="psf1">
             <gml:boundedBy xsi:nil="true"/>
-            <core:cellSpaceBoundaryMember>
-                <imdf:OpeningCellSpaceBoundary gml:id="O1">
-                    <gml:description></gml:description>
-                    <gml:name>OpeingCellSpace</gml:name>
+            <core:cellSpaceMember>
+                <imdf:GeofenceSpace gml:id="C1">
+                    <gml:description>storey="F1":</gml:description>
+                    <gml:name>C1</gml:name>
                     <gml:boundedBy xsi:nil="true"/>
-                    <core:duality xlink:href="#T2"/>
-                    <core:cellSpaceBoundaryGeometry>
-                        <core:geometry2D>
-                            <gml:LineString gml:id="CBG-B1">
-<gml:pos srsDimension="3">89.8617866296617 204.73888960423105 0.0</gml:pos>
-<gml:pos srsDimension="3">90.29610749150903 175.82105065707387 0.0</gml:pos>
-<gml:pos srsDimension="3">90.53961641578336 148.6992934632883 0.0</gml:pos>
-                            </gml:LineString>
-                        </core:geometry2D>
-                    </core:cellSpaceBoundaryGeometry>
+                    <core:cellSpaceGeometry>
+                        <core:Geometry2D>
+                            <gml:Polygon gml:id="CG-C1">
+<gml:exterior>
+    <gml:LinearRing>
+        <gml:pos srsDimension="3">10.0 0.0 NaN</gml:pos>
+        <gml:pos srsDimension="3">20.0 0.0 NaN</gml:pos>
+        <gml:pos srsDimension="3">20.0 10.0 NaN</gml:pos>
+        <gml:pos srsDimension="3">10.0 10.0 NaN</gml:pos>
+        <gml:pos srsDimension="3">10.0 0.0 NaN</gml:pos>
+    </gml:LinearRing>
+</gml:exterior>
+                            </gml:Polygon>
+                        </core:Geometry2D>
+                    </core:cellSpaceGeometry>
+                    <core:duality xlink:href="#S1"/>
+                    <core:partialboundedBy xlink:href="#B1-REVERSE"/>
                     <imdf:featureInformation>
-                        <imdf:id>featureInformation_id</imdf:id>
-                        <imdf:type>featureInformation_type</imdf:type>
+                        <imdf:id>G1</imdf:id>
+                        <imdf:type>Feature</imdf:type>
                         <imdf:feature_type>geofence</imdf:feature_type>
-                        <imdf:gml_geometry>featureInformation_geometry</imdf:gml_geometry>
+                        <imdf:gml_geometry></imdf:gml_geometry>
                     </imdf:featureInformation>
-                    <imdf:category>automobile</imdf:category>
-                    <imdf:accessibility>wheelchair</imdf:accessibility>
-                    <imdf:accessibility>wheelchair</imdf:accessibility>
-                    <imdf:access_control>guard</imdf:access_control>
-                    <imdf:access_control>guard</imdf:access_control>
-                    <imdf:level_id>level_id</imdf:level_id>
-                    <imdf:door>
-                        <imdf:type>door_type</imdf:type>
-                        <imdf:automatic>false</imdf:automatic>
-                        <imdf:material>door_mateial</imdf:material>
-                    </imdf:door>
+                    <imdf:category>geofence</imdf:category>
+                    <imdf:restriction>employeesonly</imdf:restriction>
+                    <imdf:correlation_id>null</imdf:correlation_id>
+                    <imdf:building_ids>11111111</imdf:building_ids>
+                    <imdf:building_ids>22222222</imdf:building_ids>
+                    <imdf:level_ids>33333333</imdf:level_ids>
+                    <imdf:level_ids>44444444</imdf:level_ids>
                     <imdf:feature_name>
-                        <imdf:language>en</imdf:language>
+                        <imdf:language>ko-KR</imdf:language>
                         <imdf:name>feature_name</imdf:name>
                     </imdf:feature_name>
                     <imdf:alt_name>
-                        <imdf:language>en</imdf:language>
-                        <imdf:name>feature_name</imdf:name>
+                        <imdf:language>ko-KR</imdf:language>
+                        <imdf:name>alt_name</imdf:name>
                     </imdf:alt_name>
-                </imdf:OpeningCellSpaceBoundary>
-            </core:cellSpaceBoundaryMember>
+                </imdf:GeofenceSpace>
+            </core:cellSpaceMember>
         </core:PrimalSpaceFeatures>
     </core:primalSpaceFeatures>
     <imdf:manifest>

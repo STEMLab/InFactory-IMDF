@@ -31,17 +31,20 @@ import edu.pnu.stem.api.exception.UndefinedDocumentException;
 import edu.pnu.stem.binder.Convert2Json;
 import edu.pnu.stem.binder.IndoorGMLMap;
 import edu.pnu.stem.dao.FixtureSpaceDAO;
+import edu.pnu.stem.feature.imdf.FeatureInformation;
 import edu.pnu.stem.feature.imdf.FixtureSpace;
+import edu.pnu.stem.feature.imdf.Labels;
+import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FEATURECATEGORY;
 import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.FIXTURECATEGORY;
-
+import net.opengis.indoorgml.imdf.indoorgmlimdf.v_1_0.LANGUAGETAG;
 
 @RestController
 @RequestMapping("/documents/{docId}/FixtureSpace")
 public class FixtureSpaceController {
-	
+
 	@Autowired
-    private ApplicationContext applicationContext;
-	
+	private ApplicationContext applicationContext;
+
 	@PostMapping(value = "/{id}", produces = "application/json")
 	@ResponseStatus(HttpStatus.CREATED)
 	public void createFixtureSpace(@PathVariable("id") String id, @RequestBody ObjectNode json, HttpServletRequest request, HttpServletResponse response) throws IOException {
@@ -65,6 +68,8 @@ public class FixtureSpaceController {
 		FIXTURECATEGORY category = null;
 		String anchor_id= null;
 		String level_id= null;
+		Labels feature_name = null;
+		Labels alt_name = null;
 		
 		if(id == null || id.isEmpty()) {
 			id = UUID.randomUUID().toString();
@@ -113,14 +118,63 @@ public class FixtureSpaceController {
 			cellGeometry = Convert2Json.json2Geometry(geometry);
 		}
 		
-		if(json.has("category")) {
-			
-		}
-		
+		if (json.has("imdf"))
+		{			
+			if (json.get("imdf").has("category")) {
+				String str = json.get("imdf").get("category").asText().trim();
 
-	
+				for (FIXTURECATEGORY value : FIXTURECATEGORY.values()) {
+					if (str.toUpperCase().equals(value.toString())) {
+						category = value;
+					}
+				}
+			}
 
-		
+			if (json.get("imdf").has("anchor_id")) {
+
+				anchor_id = json.get("imdf").get("anchor_id").asText().trim();
+
+			}
+			if (json.get("imdf").has("level_id")) {
+
+				level_id = json.get("imdf").get("level_id").asText().trim();
+
+			}
+			if (json.get("imdf").has("feature_name")) {
+				feature_name = new Labels();
+
+				if (json.get("imdf").get("feature_name").has("language")) {
+					String str = json.get("imdf").get("feature_name").get("language").asText().trim();
+
+					for (LANGUAGETAG value : LANGUAGETAG.values()) {
+						if (str.toUpperCase().equals(value.toString())) {
+							feature_name.setLanguage(value);
+						}
+					}
+				}
+				if (json.get("imdf").get("feature_name").has("name")) {
+					String str = json.get("imdf").get("feature_name").get("name").asText().trim();
+					feature_name.setName(str);
+				}
+
+			}
+			if (json.get("imdf").has("alt_name")) {
+				alt_name = new Labels();
+				if (json.get("imdf").get("alt_name").has("language")) {
+					String str = json.get("imdf").get("alt_name").get("language").asText().trim();
+					for (LANGUAGETAG value : LANGUAGETAG.values()) {
+						if (str.toUpperCase().equals(value.toString())) {
+
+							alt_name.setLanguage(value);
+						}
+					}
+				}
+				if (json.get("imdf").get("alt_name").has("name")) {
+					String str = json.get("imdf").get("alt_name").get("name").asText().trim();
+
+					alt_name.setName(str);
+				}
+			}		
 		FixtureSpace c = null;
 		try {
 			Container container = applicationContext.getBean(Container.class);
@@ -142,29 +196,31 @@ public class FixtureSpaceController {
 		}
 		response.setHeader("Location", request.getRequestURL().append(c.getId()).toString());
 	}
-	
+
 	@GetMapping(value = "/{id}", produces = "application/json")
 	@ResponseStatus(HttpStatus.FOUND)
-	public void getFixtureSpace(@PathVariable("docId") String docId,@PathVariable("id") String id, HttpServletRequest request, HttpServletResponse response) throws IOException {
+	public void getFixtureSpace(@PathVariable("docId") String docId, @PathVariable("id") String id,
+			HttpServletRequest request, HttpServletResponse response) throws IOException {
 		try {
 			Container container = applicationContext.getBean(Container.class);
 			IndoorGMLMap map = container.getDocument(docId);
-			
+
 			ObjectNode target = Convert2Json.convert2JSON(map, FixtureSpaceDAO.readFixtureSpace(map, id));
 			response.setContentType("application/json;charset=UTF-8");
 			PrintWriter out = response.getWriter();
 			out.print(target);
-			out.flush();			
-			
-		}catch(NullPointerException e) {
+			out.flush();
+
+		} catch (NullPointerException e) {
 			e.printStackTrace();
 			throw new UndefinedDocumentException();
 		}
 	}
-	
+
 	@PutMapping(value = "/{id}", produces = "application/json")
 	@ResponseStatus(HttpStatus.ACCEPTED)
-	public void updateFixtureSpace(@PathVariable("docId") String docId,@PathVariable("id") String id, @RequestBody ObjectNode json, HttpServletRequest request, HttpServletResponse response) {
+	public void updateFixtureSpace(@PathVariable("docId") String docId, @PathVariable("id") String id,
+			@RequestBody ObjectNode json, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			Container container = applicationContext.getBean(Container.class);
 			IndoorGMLMap map = container.getDocument(docId);
@@ -173,62 +229,60 @@ public class FixtureSpaceController {
 			List<String> partialBoundedBy = null;
 			Geometry geom = null;
 			String parentId = null;
-			
-			if(json.has("parentId")) {
+
+			if (json.has("parentId")) {
 				parentId = json.get("parentId").asText().trim();
 			}
-			
-			if(json.has("duality")){
-				
+
+			if (json.has("duality")) {
+
 				duality = json.get("duality").asText().trim();
-				
+
 			}
-			if(json.has("properties")){
-				if(json.get("properties").has("duality")){
-					duality = json.get("properties").get("duality").asText().trim();					
-				}				
+			if (json.has("properties")) {
+				if (json.get("properties").has("duality")) {
+					duality = json.get("properties").get("duality").asText().trim();
+				}
 			}
-			if(json.has("geometry")) {
+			if (json.has("geometry")) {
 				geometry = json.get("geometry");
-				geom = Convert2Json.json2Geometry(geometry);			
+				geom = Convert2Json.json2Geometry(geometry);
 			}
-			
-			//TODO : 나중에 고치기!!
-			//String properties = json.get("properties").asText().trim();
-			//String duality = null;
-			
-			if(json.has("properties")){
-				if(json.get("properties").has("partialboundedBy")){
+
+			// TODO : 나중에 고치기!!
+			// String properties = json.get("properties").asText().trim();
+			// String duality = null;
+
+			if (json.has("properties")) {
+				if (json.get("properties").has("partialboundedBy")) {
 					partialBoundedBy = new ArrayList<String>();
 					JsonNode partialBoundedByList = json.get("properties").get("partialboundedBy");
-					for(int i = 0 ; i < partialBoundedByList.size() ; i++){
+					for (int i = 0; i < partialBoundedByList.size(); i++) {
 						partialBoundedBy.add(partialBoundedByList.get(i).asText().trim());
 					}
 				}
 			}
-			
-		FixtureSpaceDAO.updateFixtureSpace(map, parentId, id, null, null, geom, duality, partialBoundedBy );
-			
-		}
-		catch(NullPointerException e) {
+
+			FixtureSpaceDAO.updateFixtureSpace(map, parentId, id, null, null, geom, duality, partialBoundedBy);
+
+		} catch (NullPointerException e) {
 			e.printStackTrace();
 			throw new UndefinedDocumentException();
 		}
 	}
-	
+
 	@DeleteMapping(value = "/{id}", produces = "application/json")
 	@ResponseStatus(HttpStatus.NO_CONTENT)
-	public void deleteFixtureSpace(@PathVariable("docId") String docId,@PathVariable("id") String id, @RequestBody ObjectNode json, HttpServletRequest request, HttpServletResponse response) {
+	public void deleteFixtureSpace(@PathVariable("docId") String docId, @PathVariable("id") String id,
+			@RequestBody ObjectNode json, HttpServletRequest request, HttpServletResponse response) {
 		try {
 			Container container = applicationContext.getBean(Container.class);
-			IndoorGMLMap map = container.getDocument(docId);			
+			IndoorGMLMap map = container.getDocument(docId);
 			FixtureSpaceDAO.deleteFixtureSpace(map, id);
-		}
-		catch(NullPointerException e) {
+		} catch (NullPointerException e) {
 			e.printStackTrace();
 			throw new UndefinedDocumentException();
 		}
 	}
-	
-	
+
 }

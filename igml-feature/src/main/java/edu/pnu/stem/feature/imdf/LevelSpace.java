@@ -11,8 +11,8 @@ public class LevelSpace extends CellSpace {
 	private FeatureInformation featureInformation;
 	private LEVELCATEGORY category;
 	private RESTRICTIONCATEGORY restriction;
-	private String outdoor;
-	private String ordinal;
+	private Boolean outdoor;
+	private int ordinal;
 	private String address_id;
 	private String[] building_ids;
 	private Labels feature_name;
@@ -53,19 +53,19 @@ public class LevelSpace extends CellSpace {
 		return restriction;
 	}
 
-	public void setOutdoor(String outdoor) {
+	public void setOutdoor(Boolean outdoor) {
 		this.outdoor = outdoor;
 	}
 
-	public String getOutdoor() {
+	public Boolean getOutdoor() {
 		return outdoor;
 	}
 
-	public void setOrdinal(String ordinal) {
+	public void setOrdinal(int ordinal) {
 		this.ordinal = ordinal;
 	}
 
-	public String getOrdinal() {
+	public int getOrdinal() {
 		return ordinal;
 	}
 

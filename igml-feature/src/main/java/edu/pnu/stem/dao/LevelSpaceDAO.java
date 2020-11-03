@@ -106,7 +106,7 @@ public class LevelSpaceDAO {
 	public static LevelSpace createLevelSpace(IndoorGMLMap map, String parentId, String id, String name,
 			String description, Geometry geometry, String duality, List<String> level, List<String> partialBoundedBy,
 			FeatureInformation featureInformation, LEVELCATEGORY category, RESTRICTIONCATEGORY restriction,
-			String outdoor, String ordinal, String address_id, String[] building_ids, Labels feature_name,
+			Boolean outdoor, int ordinal, String address_id, String[] building_ids, Labels feature_name,
 			Labels short_name) {
 
 		if (id == null) {
@@ -204,7 +204,7 @@ public class LevelSpaceDAO {
 			newFeature.setOutdoor(outdoor);
 
 		}
-		if (ordinal != null) {
+		if (ordinal >=0) {
 			newFeature.setOrdinal(ordinal);
 
 		}
