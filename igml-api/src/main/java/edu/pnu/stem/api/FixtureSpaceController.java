@@ -174,7 +174,8 @@ public class FixtureSpaceController {
 
 					alt_name.setName(str);
 				}
-			}		
+			}	
+		}
 		FixtureSpace c = null;
 		try {
 			Container container = applicationContext.getBean(Container.class);

@@ -1,5 +1,6 @@
 package edu.pnu.stem.binder;
 
+import java.math.BigInteger;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -2207,18 +2208,18 @@ public class Convert2JaxbClass {
 			newFeature.setFeatureName(labelsType);
 
 		}
-		if (feature.getSilingPolygonIds() != null) {
-
-			List<String> silingPolygonIds = new ArrayList<String>();
-
-			for (String silingPolygonId : feature.getSilingPolygonIds()) {
-
-				silingPolygonIds.add(silingPolygonId);
-			}
-
-			newFeature.setSiblingPolygonIds(silingPolygonIds);
-
-		}
+//		if (feature.getSilingPolygonIds() != null) {
+//
+//			List<String> silingPolygonIds = new ArrayList<String>();
+//
+//			for (String silingPolygonId : feature.getSilingPolygonIds()) {
+//
+//				silingPolygonIds.add(silingPolygonId);
+//			}
+//
+//			newFeature.setSiblingPolygonIds(silingPolygonIds);
+//
+//		}
 
 		newFeature.setId(feature.getId());
 
@@ -2431,9 +2432,10 @@ public class Convert2JaxbClass {
 
 			newFeature.setOutdoor(feature.getOutdoor());
 		}
-		if (feature.getOrdinal() != null) {
+		if (feature.getOrdinal() >=0) {
+			 BigInteger bigInt =  BigInteger.valueOf(feature.getOrdinal());	
 
-			newFeature.setOrdinal(feature.getOrdinal());
+			newFeature.setOrdinal(bigInt);
 		}
 		if (feature.getAddressId() != null) {
 

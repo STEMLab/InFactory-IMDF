@@ -138,7 +138,6 @@ public class OpeningCellSpaceBoundaryController {
 				for (OPENINGCATEGORY value : OPENINGCATEGORY.values()) {
 					if (str.toUpperCase().equals(value.toString())) {
 						category = value;
-
 					}
 				}
 			}
