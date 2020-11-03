@@ -11,6 +11,25 @@ public class KioskSpace extends CellSpace {
 	String level_id;
 	Labels feature_name;
 	Labels alt_name;
+	String parentId;
+	
+	public void setParent(CellSpace parent) {
+		CellSpace found = null;
+		found = (CellSpace) indoorGMLMap.getFeature(parent.getId());
+		if (found == null) {
+			indoorGMLMap.setFutureFeature(parent.getId(), parent);
+		}
+		this.parentId = parent.getId();
+	}
+
+	public CellSpace getCellSpaceFeature() {
+		CellSpace feature = null;
+		feature = (CellSpace) indoorGMLMap.getFeature(this.parentId);
+		if (feature == null) {
+			feature = (CellSpace) indoorGMLMap.getFutureFeature(this.parentId);
+		}
+		return feature;
+	}
 
 	public KioskSpace(IndoorGMLMap doc, String id) {
 		super(doc, id);

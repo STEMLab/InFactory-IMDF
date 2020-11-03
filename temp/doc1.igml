@@ -5,49 +5,36 @@
         <core:PrimalSpaceFeatures gml:id="psf1">
             <gml:boundedBy xsi:nil="true"/>
             <core:cellSpaceMember>
-                <imdf:GeofenceSpace gml:id="C1">
-                    <gml:description>storey="F1":</gml:description>
-                    <gml:name>C1</gml:name>
+                <imdf:FixtureSpace gml:id="F1">
+                    <gml:name>2c4009ff-344b-4bbc-834b-2985403075b3</gml:name>
                     <gml:boundedBy xsi:nil="true"/>
                     <core:cellSpaceGeometry>
-                        <core:Geometry2D>
-                            <gml:Polygon gml:id="CG-C1">
+                        <core:Geometry3D>
+                            <gml:Solid gml:id="CG-2c4009ff-344b-4bbc-834b-2985403075b3">
 <gml:exterior>
-    <gml:LinearRing>
-        <gml:pos srsDimension="3">10.0 0.0 NaN</gml:pos>
-        <gml:pos srsDimension="3">20.0 0.0 NaN</gml:pos>
-        <gml:pos srsDimension="3">20.0 10.0 NaN</gml:pos>
-        <gml:pos srsDimension="3">10.0 10.0 NaN</gml:pos>
-        <gml:pos srsDimension="3">10.0 0.0 NaN</gml:pos>
-    </gml:LinearRing>
+    <gml:Shell>
+        <gml:surfaceMember>
+            <gml:Polygon gml:id="Poly3bf773e9-0377-4589-a0ba-e0326c7b6407">
+                <gml:exterior>
+                    <gml:LinearRing>
+                        <gml:pos srsDimension="3">-123.4293369 48.6403718 0.0</gml:pos>
+                        <gml:pos srsDimension="3">-123.4293119 48.6403691 0.0</gml:pos>
+                        <gml:pos srsDimension="3">-123.4293097 48.6403784 0.0</gml:pos>
+                        <gml:pos srsDimension="3">-123.4293347 48.6403811 0.0</gml:pos>
+                        <gml:pos srsDimension="3">-123.4293369 48.6403718 NaN</gml:pos>
+                    </gml:LinearRing>
+                </gml:exterior>
+            </gml:Polygon>
+        </gml:surfaceMember>
+    </gml:Shell>
 </gml:exterior>
-                            </gml:Polygon>
-                        </core:Geometry2D>
+                            </gml:Solid>
+                        </core:Geometry3D>
                     </core:cellSpaceGeometry>
-                    <core:duality xlink:href="#S1"/>
-                    <core:partialboundedBy xlink:href="#B1-REVERSE"/>
-                    <imdf:featureInformation>
-                        <imdf:id>G1</imdf:id>
-                        <imdf:type>Feature</imdf:type>
-                        <imdf:feature_type>geofence</imdf:feature_type>
-                        <imdf:gml_geometry></imdf:gml_geometry>
-                    </imdf:featureInformation>
-                    <imdf:category>geofence</imdf:category>
-                    <imdf:restriction>employeesonly</imdf:restriction>
-                    <imdf:correlation_id>null</imdf:correlation_id>
-                    <imdf:building_ids>11111111</imdf:building_ids>
-                    <imdf:building_ids>22222222</imdf:building_ids>
-                    <imdf:level_ids>33333333</imdf:level_ids>
-                    <imdf:level_ids>44444444</imdf:level_ids>
-                    <imdf:feature_name>
-                        <imdf:language>ko-KR</imdf:language>
-                        <imdf:name>feature_name</imdf:name>
-                    </imdf:feature_name>
-                    <imdf:alt_name>
-                        <imdf:language>ko-KR</imdf:language>
-                        <imdf:name>alt_name</imdf:name>
-                    </imdf:alt_name>
-                </imdf:GeofenceSpace>
+                    <core:duality xlink:href="#state-fixture-2c4009ff-344b-4bbc-834b-2985403075b3-ce22ab49-7b96-45c2-879b-eb7eb822da07"/>
+                    <imdf:anchor_id>null</imdf:anchor_id>
+                    <imdf:level_id>620ccbc8-a483-487f-bb1f-3ea05bec438d</imdf:level_id>
+                </imdf:FixtureSpace>
             </core:cellSpaceMember>
         </core:PrimalSpaceFeatures>
     </core:primalSpaceFeatures>
@@ -85,7 +72,7 @@
         <imdf:anchor_id>anchor_id</imdf:anchor_id>
         <imdf:hours>hours</imdf:hours>
         <imdf:ordinal>ordinal</imdf:ordinal>
-        <imdf:phone>ordinal</imdf:phone>
+        <imdf:phone>phone</imdf:phone>
         <imdf:website>website</imdf:website>
         <imdf:validity>
             <imdf:start>start1</imdf:start>
@@ -105,7 +92,7 @@
         <imdf:anchor_id>anchor_id</imdf:anchor_id>
         <imdf:hours>hours</imdf:hours>
         <imdf:ordinal>1</imdf:ordinal>
-        <imdf:phone>1</imdf:phone>
+        <imdf:phone>phone</imdf:phone>
         <imdf:website>website</imdf:website>
         <imdf:validity>
             <imdf:start>start1</imdf:start>
